@@ -291,5 +291,24 @@ function App() {
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {tenants.map((tenant) => (
+           <tbody className="bg-white divide-y divide-gray-200">
+  {tenants.map((tenant) => (
+    <tr key={tenant.id} className="hover:bg-gray-50 transition-colors duration-150">
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{tenant.name}</td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">￥{tenant.water.toFixed(2)}</td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">￥{tenant.electricity.toFixed(2)}</td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">￥{tenant.rent.toFixed(2)}</td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600">
+        ￥{(tenant.water + tenant.electricity + tenant.rent).toFixed(2)}
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm">
+        <button
+          onClick={() => deleteTenant(tenant.id)}
+          className="text-red-600 hover:text-red-900 font-medium"
+        >
+          删除
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
