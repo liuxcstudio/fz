@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+  functions = "functions"
+
+[dev]
+  command = "npm start"
+  publish = "build"
+  port = 3000
+  functions = "functions"
